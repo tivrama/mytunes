@@ -6,11 +6,19 @@ var SongModel = Backbone.Model.extend({
     // Why do we need to pass along the keyword this when we trigger the 'play' event?
     this.trigger('play', this);
   },
-  enqueue: function(){
-    console.log('SongModel, enqueue: ', this)
-    //add a song into the song SongQueue
-    
 
+
+  //added controler by joel
+  enqueue: function(){
+    this.trigger('enqueue', this);
+  },
+
+  dequeue: function(){
+    this.trigger('dequeue', this);
+  },
+
+  ended: function(){
+    this.trigger('ended', this);
   }
 
 });
