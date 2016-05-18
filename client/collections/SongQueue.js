@@ -6,7 +6,7 @@ var SongQueue = Songs.extend({
     // these are listening to songModel events
     this.on('add', this.enqueue, this);
     this.on('dequeue', this.dequeue, this);
-    this.on('ended', this.ended, this);
+    this.on('ended', this.playNext, this);
   },
 
 
@@ -18,7 +18,7 @@ var SongQueue = Songs.extend({
     }
   },
 
-  dequeue: function() {
+  dequeue: function(song) {
     if (this.at(0) === song) {
       this.playNext(); //see playNext function below
     }
